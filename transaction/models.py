@@ -9,7 +9,7 @@ class Transaction(models.Model):
     ammount = models.DecimalField(default=0,max_digits=12,decimal_places=2)
     balence_after_transaction = models.DecimalField(default=0,max_digits=12,decimal_places=2)
     transaction_type = models.CharField(max_length=50,choices=TRANSACTION_TYPE_CHOICES)
-    transfer_to = models.PositiveIntegerField(unique=True,null=True,blank=True)
+    transfer_to = models.PositiveIntegerField(null=True,blank=True)
     time = models.DateTimeField(auto_now_add=True)
 
     
