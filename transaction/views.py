@@ -93,7 +93,7 @@ class TransferVeiw(TemplateView):
                 data = UserBankAccount.objects.get(account_no=account)
                 obj = Transaction(account=data,ammount=ammount,balence_after_transaction=data.balence,transaction_type=tr,transfer_to=taccount)
                 obj.save()
-        return redirect('/') 
+            return redirect('/') 
 
 
 class BalenceHistory(ListView):
