@@ -1,0 +1,37 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %} 
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-sm-1 mt-3"></div>
+        <div class='col-sm-10 mt-5'>
+            <h2>Transaction History</h2>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Account</th>
+                        <th scope="col">Ammount</th>
+                        <th scope="col">Balence After Transaction</th>
+                        <th scope="col">Transaction Type</th>
+                        <th scope="col">Transfer To</th>
+                        <th scope="col">Time & date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for ht in history %}
+                      <tr>
+                        <th scope="row">{{ht.account}}</th>
+                        <td>{{ht.ammount}}</td>
+                        <th scope="row">{{ht.balence_after_transaction}}</th>
+                        <td>{{ht.transaction_type}}</td>
+                        <td>{{ht.transfer_to}}</td>
+                        <td>{{ht.time}}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</form>
+{% endblock content %}

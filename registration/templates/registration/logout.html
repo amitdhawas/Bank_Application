@@ -1,0 +1,16 @@
+{% extends 'accounts/base.html' %}
+{% block main %} {% endblock main %}
+
+{% block content %} 
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class='col-sm-4 mt-5'>
+            <h4>Logout succesfully....</h4><br>
+    
+            <a href="{% url 'home' %}" class="btn btn-success"> Login Again</a>
+        </div>
+    </div>
+</form>
+{% endblock content %}

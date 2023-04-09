@@ -1,0 +1,28 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %} 
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class='col-sm-6 mt-5'>
+            <h4>{{msg}}</h4><br>
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+            <p>{{error}}</p>
+            {% endfor %}
+            {% endif %}
+            <label> Enter your account number: </label>
+            <input type="number" name="account"><br><br>
+
+            <label> Enter account number to transfer money : </label>
+            <input type="number" name="taccount"><br><br>
+
+            {% for fm in form %}
+            {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}<br><br>
+            {% endfor %}
+        <input class="btn btn-success" type="submit" value="Enter">
+        </div>
+    </div>
+</form>
+{% endblock content %}

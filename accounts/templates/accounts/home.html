@@ -1,0 +1,24 @@
+{% extends 'accounts/base.html' %}
+{% block main %} {% endblock main %}
+
+{% block content %} 
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class='col-sm-2'></div>
+        <div class='col-sm-6 mt-5'>
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+            <p>{{error}}</p>
+            {% endfor %}
+            {% endif %}
+
+            {% for fm in form %}
+            {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}<br><br>
+            {% endfor %}
+        <input class="btn btn-success" type="submit" value="Save and Next">
+        <a href="{% url 'home' %}" class="btn btn-warning">Back</a>
+        </div>
+    </div>
+</form>
+{% endblock content %}

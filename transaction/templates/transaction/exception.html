@@ -1,0 +1,15 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %} 
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class='col-sm-6 mt-5'>
+            <h4>{{msg}}</h4><br>
+            
+        <a class="btn btn-warning" href="{% url 'dashboard' %}">Back To Home</a>
+        </div>
+    </div>
+</form>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'accounts/base.html' %}
+{% block main %} {% endblock main %}
+
+{% block content %} 
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class='col-sm-6 mt-5'>
+            {{form.as_p}}
+        <input class="btn btn-success" type="submit" value="Save">
+        </div>
+    </div>
+</form>
+{% endblock content %}
